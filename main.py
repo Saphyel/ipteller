@@ -15,4 +15,4 @@ if provider.ip != address.ip:
     address.save()
 
     deliver = Mailer()
-    deliver.send('something@gmail.com', 'something@gmail.com', 'IP Teller', 'Your IP changed to: ' + address.ip)
+    deliver.send('IP Teller', 'Your IP changed to: ' + address.ip)

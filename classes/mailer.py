@@ -9,7 +9,7 @@ class Mailer:
         self.user = os.environ["GMAIL_USER"]
         self.pwd = os.environ["GMAIL_PASS"]
 
-    def send(self, email_from, email_to, subject, message):
+    def send(subject, message):
         try:
             server = smtplib.SMTP_SSL(self.host, self.port)
             server.login(self.user, self.pwd)
@@ -19,8 +19,8 @@ To: %s
 Subject: %s
 
 %s
-""" % (email_from, email_to, subject, message)
-            server.sendmail(email_from, email_to, msg)
+""" % (self.user, self.user, subject, message)
+            server.sendmail(self.user, self.user, msg)
             server.close()
         except:
             print 'Something went wrong...'
