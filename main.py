@@ -1,18 +1,21 @@
-from classes.jsonip import JsonIp
+#!/usr/bin/env python
+"""This script runs the whole app"""
+
 from classes.address import Address
+from classes.jsonip import JsonIp
 from classes.mailer import Mailer
 
-# Get last IP
-address = Address('tmp/address.txt')
-address.load()
+ADDRESS = Address('tmp/address.txt')
+ADDRESS.load()
 
-# Fetch actual IP
-provider = JsonIp()
+PROVIDER = JsonIp()
+PROVIDER.get_response()
 
-# Report if is new
-if provider.ip != address.ip:
-    address.ip = provider.ip
-    address.save()
+if PROVIDER.public_ip != ADDRESS.public_ip:
+    ADDRESS.public_ip = PROVIDER.public_ip
+    ADDRESS.save()
 
-    deliver = Mailer()
-    deliver.send('IP Teller', 'Your IP changed to: ' + address.ip)
+    DELIVER = Mailer()
+    DELIVER.set_subject('IP Teller')
+    DELIVER.set_message('Your IP changed to: ' + ADDRESS.public_ip)
+    DELIVER.send()
