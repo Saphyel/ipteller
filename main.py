@@ -15,7 +15,5 @@ if PROVIDER.public_ip != ADDRESS.public_ip:
     ADDRESS.public_ip = PROVIDER.public_ip
     ADDRESS.save()
 
-    DELIVER = Mailer()
-    DELIVER.set_subject('IP Teller')
-    DELIVER.set_message('Your IP changed to: ' + ADDRESS.public_ip)
+    DELIVER = Mailer('IP Teller', 'Your IP changed to: ' + ADDRESS.public_ip)
     DELIVER.send()
