@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 """This script runs the whole app"""
 
-from classes.address import Address
-from classes.jsonip import JsonIp
-from classes.mailer import Mailer
+from address import Address
+from jsonip import JsonIp
+from mailer import Mailer
 
 ADDRESS = Address('tmp/address.txt')
 ADDRESS.load()
