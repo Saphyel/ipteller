@@ -8,7 +8,11 @@ By default generates a cron job that checks every hour your public IP against th
 ## Config
 You need to add your gmail details as environment variables using `GMAIL_USER` and `GMAIL_PASS` (check the docker-compose.yml). The account that you specify will be the sender and receiver of the email.
 
-## Future plan
-- Integrate more providers of your public IP address.
-- Integrate more deliveries of your new IP address.
-- Integrate more places where to store your actual IP address.
+## Dev
+Execute: `pip install --user -r dev-requirements.txt`
+
+### Publish your package
+Execute: `python setup.py sdist;twine upload dist/*`
+
+### Run tests
+Execute: `behave`
