@@ -17,7 +17,3 @@ class JsonIp(object):
         uri = urlopen(self.url)
         response = load(uri)
         self.public_ip = response["ip"]
-
-    def get_ip(self):
-        """Returns public IP address"""
-        return self.public_ip
