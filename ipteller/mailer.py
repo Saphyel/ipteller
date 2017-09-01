@@ -21,14 +21,7 @@ class Mailer(object):
         try:
             server = smtplib.SMTP_SSL(self.host, self.port)
             server.login(self.user, self.pwd)
-            msg = """\
-From: %s
-To: %s
-Subject: %s
-
-%s
-""" % (self.user, self.user, self.subject, self.body)
-            server.sendmail(self.user, self.user, msg)
+            server.sendmail(self.user, self.user, self.message())
             server.close()
         except smtplib.SMTPAuthenticationError as error:
             print 'Authentication error:' + error.smtp_error
@@ -36,3 +29,13 @@ Subject: %s
         except ValueError as error:
             print error.message
             quit(0)
+
+    def message(self):
+        """Returns the body of the email"""
+        return """\
+From: %s
+To: %s
+Subject: %s
+
+%s
+""" % (self.user, self.user, self.subject, self.body)
