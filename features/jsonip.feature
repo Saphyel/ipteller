@@ -1,4 +1,4 @@
-Feature: Return IP from JsonIP provider (jsonip)
+Feature: Return IP from JsonIP provider
 
 Scenario: Get your IP address
     When I want to check my IP address

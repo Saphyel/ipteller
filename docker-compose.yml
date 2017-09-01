@@ -7,7 +7,7 @@ services:
     working_dir: /app
     environment:
       PYTHONUSERBASE: /app/vendor
-      PYTHONPATH: '/app/vendor/lib/python2.7/site-packages:$PYTHONPATH'
+      PYTHONPATH: '/app/vendor/lib/python2.7/site-packages'
       PATH: '/app/vendor/bin:$PATH'
       GMAIL_USER: 'something@gmail.com'
       GMAIL_PASS: 'Password'
