@@ -5,15 +5,15 @@ from address import Address
 from jsonip import JsonIp
 from mailer import Mailer
 
-ADDRESS = Address('tmp/address.txt')
-ADDRESS.load()
+address = Address('tmp/address.txt')
+address.load()
 
-PROVIDER = JsonIp()
-PROVIDER.get_response()
+provider = JsonIp()
+provider.get_response()
 
-if PROVIDER.public_ip != ADDRESS.public_ip:
-    ADDRESS.public_ip = PROVIDER.public_ip
-    ADDRESS.save()
+if provider.public_ip != address.public_ip:
+    address.public_ip = provider.public_ip
+    address.save()
 
-    DELIVER = Mailer('IP Teller', 'Your IP changed to: ' + ADDRESS.public_ip)
-    DELIVER.send()
+    deliver = Mailer('IP Teller', 'Your IP changed to: ' + address.public_ip)
+    deliver.send()
