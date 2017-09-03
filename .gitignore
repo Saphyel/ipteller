@@ -101,6 +101,4 @@ ENV/
 .mypy_cache/
 
 /.idea/
-/tmp/*
-!/tmp/.gitkeep
 /vendor/
