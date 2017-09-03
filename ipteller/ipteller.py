@@ -5,7 +5,7 @@ from address import Address
 from jsonip import JsonIp
 from mailer import Mailer
 
-address = Address('tmp/address.txt')
+address = Address('~/address.txt')
 address.load()
 
 provider = JsonIp()
