@@ -6,14 +6,9 @@ from jsonip import JsonIp
 from mailer import Mailer
 
 address = Address('address.txt')
-address.load()
-
 provider = JsonIp()
-provider.get_response()
+ip = provider.get_response()
 
-if provider.public_ip != address.public_ip:
-    address.public_ip = provider.public_ip
-    address.save()
-
-    deliver = Mailer('IP Teller', 'Your IP changed to: ' + address.public_ip)
-    deliver.send()
+if ip != address.load():
+    address.save(ip)
+    deliver = Mailer('IP Teller', 'Your IP changed to: ' + ip)
