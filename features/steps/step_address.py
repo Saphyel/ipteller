@@ -18,11 +18,9 @@ def step_impl(context, loc):
 @when('I save the IP {ip}')
 def step_impl(context, ip):
     context.ip = ip
-    context.address.public_ip = ip
-    context.address.save()
+    context.address.save(ip)
 
 
 @then('I expect to load it')
 def step_impl(context):
-    context.address.load()
-    assert context.ip == context.address.public_ip
+    assert context.ip == context.address.load()

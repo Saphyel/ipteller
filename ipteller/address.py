@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
-import os.path
 import logging
+import os.path
 
 
 class Address(object):
-
     def __init__(self, storage):
         if not os.path.exists(storage):
             logging.warning('Creating file: ' + storage)

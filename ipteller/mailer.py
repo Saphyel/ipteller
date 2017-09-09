@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
+import logging
 import os
 import smtplib
-import logging
 
 
 class Mailer(object):
-
     def __init__(self, subject, body):
         self.host = "smtp.gmail.com"
         self.port = 465
@@ -14,7 +13,6 @@ class Mailer(object):
         self.pwd = os.environ["GMAIL_PASS"]
         self.subject = subject
         self.body = body
-        self.send()
 
     def send(self):
         try:
