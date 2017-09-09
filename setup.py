@@ -1,15 +1,25 @@
 from distutils.core import setup
+import ipteller
 
 setup(
-    name='ipteller',
-    version='1.1.0',
+    name=ipteller.__name__,
+    version=ipteller.__version__,
     description='Sends an email when your IP address changes',
-    url='http://github.com/Saphyel/ipteller',
-    author='Saphyel',
-    author_email='Saphyel@gmail.com',
+    author=ipteller.__author__,
+    author_email=ipteller.__email__,
+    url=ipteller.__url__,
     license='MIT',
+    platforms='unix',
+    classifiers=[
+        "Programming Language :: Python :: 2.7",
+        "Intended Audience :: Raspberry Pi users",
+        "Operating System :: Unix",
+        "Topic :: Internet",
+        "Topic :: Utilities",
+        "License :: OSI Approved :: MIT",
+    ],
     packages=['ipteller'],
     tests_require=["behave"],
-    install_requires=["setuptools"],
+    install_requires=open('requirements.txt').read(),
     zip_safe=False
 )

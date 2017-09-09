@@ -1,0 +1,5 @@
+__name__ = 'ipteller'
+__version__ = '1.1.1'
+__author__ = 'Saphyel'
+__email__ = 'Saphyel@gmail.com'
+__url__ = 'http://github.com/Saphyel/ipteller'
