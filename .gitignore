@@ -102,4 +102,5 @@ ENV/
 
 /.idea/
 /vendor/
-address.txt
+/address.txt
+/CHANGELOG.md
