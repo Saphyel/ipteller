@@ -22,6 +22,7 @@ Create a file in /etc/profile.d/ipteller.sh with the variables:
 ```bash
 export GMAIL_USER='someone@gmail.com'
 export GMAIL_PASS='Password'
+export IP_PROVIDER='jsonip'
 ```
 
 and then in execute `crontab -e` and add this line at the end:

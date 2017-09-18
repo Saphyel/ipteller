@@ -1,24 +1,18 @@
 #!/usr/bin/env python
 
 import logging
-import os
 import smtplib
 
 
 class Mailer(object):
-    def __init__(self, subject, body):
-        self.host = "smtp.gmail.com"
-        self.port = 465
-        self.user = os.environ["GMAIL_USER"]
-        self.pwd = os.environ["GMAIL_PASS"]
-        self.subject = subject
-        self.body = body
-
-    def send(self):
+    @staticmethod
+    def send(data):
+        host = "smtp.gmail.com"
+        port = 465
         try:
-            server = smtplib.SMTP_SSL(self.host, self.port)
-            server.login(self.user, self.pwd)
-            server.sendmail(self.user, self.user, self.message())
+            server = smtplib.SMTP_SSL(host, port)
+            server.login(data['user'], data['pwd'])
+            server.sendmail(data['user'], data['user'], Mailer.message(data))
             server.close()
             logging.info('Notification of the new IP sent')
         except smtplib.SMTPAuthenticationError as error:
@@ -28,11 +22,12 @@ class Mailer(object):
             logging.exception(error.message)
             quit(0)
 
-    def message(self):
+    @staticmethod
+    def message(data):
         return """\
 From: %s
 To: %s
 Subject: %s
 
 %s
-""" % (self.user, self.user, self.subject, self.body)
+""" % (data['user'], data['user'], data['subject'], data['body'])

@@ -14,10 +14,10 @@ from ipteller.mailer import Mailer
 def step_impl(context, subject, body):
     context.subject = subject
     context.body = body
-    context.mailer = Mailer(subject, body)
+    context.message = Mailer.message({'user': 'test', 'pwd': 'pwd', 'subject': subject, 'body': body})
 
 
 @then('I expect to get it with a proper format')
 def step_impl(context):
-    assert context.subject in context.mailer.message()
-    assert context.body in context.mailer.message()
+    assert context.subject in context.message
+    assert context.body in context.message
