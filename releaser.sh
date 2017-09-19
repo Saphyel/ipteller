@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
 GH=https://github.com/Saphyel/ipteller/compare/
-LAST_TAG=`git describe --tags --abbrev=0 HEAD^`
+LAST_TAG=`git describe --tags --abbrev=0 origin/master`
+TMP_FILE=CHANGELOG.md
 
-printf "**Changelog** (since "${GH}${LAST_TAG}"...NEW)\n" > CHANGELOG.md
-git log ${LAST_TAG}..HEAD --pretty=format:"* %s" >> CHANGELOG.md
-printf "\n" >> CHANGELOG.md
+git fetch origin
+printf "**Changelog** (since "${GH}${LAST_TAG}"...NEW)\n" > ${TMP_FILE}
+git log ${LAST_TAG}..HEAD --pretty=format:"* %s" >> ${TMP_FILE}
+printf "\n" >> ${TMP_FILE}
+cat ${TMP_FILE} && rm ${TMP_FILE}

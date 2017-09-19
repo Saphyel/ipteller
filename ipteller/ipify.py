@@ -3,10 +3,10 @@
 from providerip import ProviderIp
 
 
-class JsonIp(ProviderIp):
+class IpIfy(ProviderIp):
     def __init__(self):
         ProviderIp.__init__(self)
-        self.url = 'https://jsonip.com/'
+        self.url = 'https://api.ipify.org?format=json'
 
     @staticmethod
     def get_ip(uri):

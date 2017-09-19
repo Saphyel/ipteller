@@ -9,6 +9,7 @@ services:
       PYTHONUSERBASE: /app/vendor
       PYTHONPATH: '/app/vendor/lib/python2.7/site-packages'
       PATH: '/app/vendor/bin:$PATH'
+      IP_PROVIDER: 'jsonip'
       TWINE_USERNAME: 'User'
       TWINE_PASSWORD: 'Password'
       GMAIL_USER: 'something@gmail.com'
