@@ -17,7 +17,7 @@ setup(
         "Topic :: Utilities",
     ],
     packages=['ipteller'],
-    tests_require=["behave"],
-    install_requires=open('requirements.txt').read(),
+    tests_require=['behave'],
+    install_requires=['requests'],
     zip_safe=False
 )
