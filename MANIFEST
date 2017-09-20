@@ -2,6 +2,8 @@
 setup.py
 ipteller/__init__.py
 ipteller/address.py
+ipteller/ipify.py
 ipteller/ipteller.py
 ipteller/jsonip.py
 ipteller/mailer.py
+ipteller/providerip.py
