@@ -12,11 +12,9 @@ setup(
     platforms='unix',
     classifiers=[
         "Programming Language :: Python :: 2.7",
-        "Intended Audience :: Raspberry Pi users",
         "Operating System :: Unix",
         "Topic :: Internet",
         "Topic :: Utilities",
-        "License :: OSI Approved :: MIT",
     ],
     packages=['ipteller'],
     tests_require=["behave"],
